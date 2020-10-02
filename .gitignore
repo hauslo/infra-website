@@ -1,0 +1,4 @@
+/editor.code-workspace
+/test/.terraform/
+/test/module/
+/test/terraform.tfstate*

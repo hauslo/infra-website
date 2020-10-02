@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  localstack:
+    image: localstack/localstack
+    container_name: localstack
+    ports:
+      - "4566:4566"
+      - "4572:4572" # deprecated but creating s3 buckets with edge/4566 doesn't work
+    environment:
+      - EDGE_PORT=4566
+      - DEFAULT_REGION=eu-west-3
+      - SERVICES=s3,iam
+      - START_WEB=0
+      - USE_SSL=false
+      - LAMBDA_REMOTE_DOCKER=false
