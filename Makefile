@@ -3,10 +3,16 @@ ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 EXEC_DOCKER_COMPOSE=docker-compose -f test/docker-compose.yml
 EXEC_TF=docker run --rm --name terraform -v $(ROOT_DIR):/test/module -v $(ROOT_DIR)/test:/test -w /test --network="host" hashicorp/terraform:light 
 EXEC_CURL=docker run --rm --name curl --network="host" curlimages/curl:latest 
+EXEC_ALPINE=docker run --rm alpine:latest 
 
 start:
 	$(EXEC_DOCKER_COMPOSE) up -d --remove-orphans --no-recreate
 	$(EXEC_TF) init
+
+wait:
+#	 docker run --rm --name wait -e TARGETS=localhost:4566,localhost:4572 --network="host" waisbrot/wait # cleaner but not working, localstack exposes the ports before being ready
+#    docker logs localstack | grep -q "Ready." && # todo: loop until Ready. is in localstack logs
+	$(EXEC_ALPINE) sleep 5s
 
 stop:
 	$(EXEC_DOCKER_COMPOSE) kill
@@ -29,5 +35,6 @@ healthcheck:
 
 test: validate apply healthcheck
 
+auto-test: start wait test stop
 
-.PHONY: start stop validate plan apply destroy healthcheck test
+.PHONY: start wait stop validate plan apply destroy healthcheck test auto-test

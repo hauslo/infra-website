@@ -13,6 +13,16 @@ Deploys a `public/` directory to AWS S3 Website
 
 ## Tests
 
+### Auto
+
+Start and wait for localstack, init terraform, run the test suite and stop localstack
+
+```bash
+make auto-test
+```
+
+### Manual
+
 Start localstack and init terraform
 
 ```bash
