@@ -40,4 +40,4 @@ Stop localstack
 make stop
 ```
 
-*See the [Makefile](Makefile)for more details.*
+*See the [Makefile](Makefile) for more details.*
