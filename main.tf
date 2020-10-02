@@ -24,5 +24,5 @@ resource "aws_s3_bucket_object" "resource" {
   source       = "${var.public}/${each.value}"
   acl          = "public-read"
   etag         = filemd5("${var.public}/${each.value}")
-  content_type = lookup(var.mime_types, split(".", each.value)[length(split(".", each.value)) - 1])
+  content_type = element(lookup(local.mimetypes, split(".", each.value)[length(split(".", each.value)) - 1]), 0)
 }

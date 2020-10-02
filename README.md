@@ -1,17 +1,12 @@
 
 # infra-website
 
-Deploys a `public/` directory to AWS S3 Website
+Deploys a `public/` directory to AWS S3 Website with terraform.
 
-## Variables
+- [Variables](variables.tf)
+- [Outputs](outputs.tf)
 
-[./variables.tf]
-
-## Outputs
-
-[./outputs.tf]
-
-## Tests
+## Test
 
 ### Auto
 
@@ -45,4 +40,4 @@ Stop localstack
 make stop
 ```
 
-*See [./Makefile] for more details.*
+*See the [Makefile](Makefile)for more details.*
