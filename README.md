@@ -9,6 +9,8 @@ Deploys a `public/` directory to AWS S3 Website with terraform.
 
 See [test/main.tf](test/main.tf)
 
+This modules expects aws secrets to be present in the environment (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables with valid credentials) although they are not required to [test](#test) the module locally.
+
 ## Test
 
 ### Auto

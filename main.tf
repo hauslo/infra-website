@@ -5,7 +5,7 @@ resource "aws_s3_bucket_policy" "public_read" {
 }
 
 resource "aws_s3_bucket" "resource" {
-  bucket = var.domain
+  bucket = var.id
   acl    = "public-read"
 
   website {

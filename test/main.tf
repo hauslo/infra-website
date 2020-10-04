@@ -17,7 +17,7 @@ provider "aws" {
 module "test" {
   source = "./module"
 
-  domain = "test"
+  id     = "test"
   public = "./public"
   providers = {
     aws = aws.test

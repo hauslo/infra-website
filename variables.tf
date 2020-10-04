@@ -1,7 +1,7 @@
 
-variable "domain" {
+variable "id" {
   type        = string
-  description = "Bucket domain name"
+  description = "Bucket id"
 }
 
 variable "public" {

@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "public_read" {
     ]
 
     resources = [
-      "arn:aws:s3:::${var.domain}/*"
+      "arn:aws:s3:::${var.id}/*"
     ]
   }
 }
