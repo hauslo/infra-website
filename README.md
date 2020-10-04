@@ -3,8 +3,11 @@
 
 Deploys a `public/` directory to AWS S3 Website with terraform.
 
+- [Provider](provider.tf)
 - [Variables](variables.tf)
 - [Outputs](outputs.tf)
+
+See [test/main.tf](test/main.tf)
 
 ## Test
 
